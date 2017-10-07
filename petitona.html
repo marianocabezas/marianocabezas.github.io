@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h3>¡Felicidades!</h3>
+
+<p>Si has llegado hasta esta página web... ¡Muy probablemente ya tengas 30 años! Como habrás podido ver he estado muy ocupado estos últimos meses y sólo he podido comprarte este regalo. Ya sé que quizás no era lo que esperabas, pero sé que era algo qu ete hacia mucha ilusión. Espera... ¿Que regalo te has encontrado?</p>
+
+<p>Ajá...</p>
+
+<p>¿Es esa película? Puede que haya habido un error... O quizás no. ¿Has visto esos 3 sobres? Quizás hay algo más esperándote si descubres el secreto de cada uno de ellos. Cuando lo hagas, vuelve aquí y cuéntamelo. Te estaré esperando.</p>
+
+<input type="password" id="wally_pass" value="">
+
+<button onclick="wally_func()">Cúentame</button></br>
+
+<button onclick="pista_func()">Pista</button><img src="ratones_abc.png" id="pista" alt="Necesitarás esta guía si quieres descifrar el secreto." align="middle" style="display:none;"> 
+
+<div id="secretos1"></div>
+
+<div id="secretos2"></div>
+
+<div id="secretos3"></div>
+
+<input type="hidden" id="acierto1" value=0>
+<input type="hidden" id="acierto2" value=0>
+<input type="hidden" id="acierto3" value=0>
+
+<div id="secretos4"></div>
+
+<script>
+function pista_func() { 
+    var pista = document.getElementById('pista');
+    if (pista.style.display == 'block') {
+        pista.style.display = 'none';
+    }
+    else { 
+        pista.style.display = 'block';
+    }
+} 
+function wally_func() {
+    var x = document.getElementById("wally_pass").value;
+    if (x.toLowerCase() == 'raton') {
+    	document.getElementById("secretos1").innerHTML = "<h2>¡Enhorabuena!</h2><p>Parece que has descubierto una de las pistas escondidas... <b>Raton</b>, ¿no? Hacemos un muy buen equipo, ya que juntos hemos encontrado esta foto... ¿Que crees que significará?</p><img src=\"raton.jpg\" alt=\"En la primera página del album de Japón, encontrarás este pequeño detalle.\" style=\"display:block;width:50%;height:50%;margin-left:auto;margin-right:auto\">";
+    	document.getElementById("acierto1").value = "1";
+	}
+	else if (x.toLowerCase() == 'plan') {
+		document.getElementById("secretos2").innerHTML = "<h2>¡No hay quien te pare!</h2><p>Una nueva palabra... <b>Plan</b>. ¿Que podrá significar? Y esta foto, ¿cuál será su propósito?</p><img src=\"plan.jpg\" alt=\"En la mochila amarilla, que se esconde con las bolsas está tu agenda nueva.\" style=\"display:block;width:50%;height:50%;margin-left:auto;margin-right:auto\">";
+		document.getElementById("acierto2").value = "1";
+	}
+	else if (x.toLowerCase() == 'viaje') {
+		document.getElementById("secretos3").innerHTML = "<h2>¡Muy bien!</h2><p><b>Viaje</b>. ¿Donde he escuchado yo esa palabra antes? Empiezo a pensar que cada palabra... ¡Está relacionada con el regalo! ¡Y parece que todas esconden una foto secreta!</p><img src=\"viaje.jpg\" alt=\"Dentro de la hucha encontraras este pequeño sobre para futuros viajes.\" style=\"display:block;width:50%;height:50%;margin-left:auto;margin-right:auto\">";
+		document.getElementById("acierto3").value = "1";
+	}
+
+	if (document.getElementById("acierto1").value & document.getElementById("acierto2").value & document.getElementById("acierto3").value) {
+		document.getElementById("secretos4").innerHTML = "<h2>¡Muchísimas felicidades amor!</h2><p>Espero que hayas disfrutado de este pequeño juego, tanto como yo creándolo. No sé si esperabas algo así para tu cumpleaños, pero espero que realmente te haya hecho ilusión. ¡Ah! Se me olvidaba. Te prometí una flor, así que aquí abajo la tienes:</p><img src=\"rose.gif\" alt=\"Te regalo esta flor, que aunque no huela y no sea un ramo, siempre podrás tener a tu lado.\">";
+	}
+
+}
+</script>
+
+</body>
+</html>
